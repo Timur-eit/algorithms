@@ -1,0 +1,13 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "0-primitive-test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
