@@ -14,11 +14,9 @@ function isValidParenthesis(str) {
     }
 
     if (balance < 0) {
-
       return false;
     }
   }
-
 
   return balance === 0;
 }

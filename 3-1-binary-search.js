@@ -3,8 +3,8 @@ import { test } from './0-test.js';
 // O(log n)
 
 /**
- * @param {Array<string>} array 
- * @param {string} searchItem 
+ * @param {Array<string>} array
+ * @param {string} searchItem
  * @returns {number | null}
  */
 function binarySearch(array, searchItem) {
@@ -24,24 +24,23 @@ function binarySearch(array, searchItem) {
       right = mid - 1;
     }
   }
-  
+
   return null;
 }
 
-
 const plants = [
-  "Аспарагус",
-  "Гвоздика",
-  "Жасмин",
-  "Калина",
-  "Малина",
-  "Пион",
-  "Тысячелистник",
-  "Хризантема",
-  "Шафран",
-  "Юкка",
-]
+  'Аспарагус',
+  'Гвоздика',
+  'Жасмин',
+  'Калина',
+  'Малина',
+  'Пион',
+  'Тысячелистник',
+  'Хризантема',
+  'Шафран',
+  'Юкка',
+];
 
-console.log(test(binarySearch(plants, "Жасмин"), 2));
-console.log(test(binarySearch(plants, "Пион"), 5));
-console.log(test(binarySearch(plants, "Роза"), null));
+console.log(test(binarySearch(plants, 'Жасмин'), 2));
+console.log(test(binarySearch(plants, 'Пион'), 5));
+console.log(test(binarySearch(plants, 'Роза'), null));

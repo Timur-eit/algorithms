@@ -14,7 +14,7 @@ function isValidParenthesis(text) {
 
   for (const character of text) {
     if (openingParenthesis.has(character)) {
-      stack.push(character)
+      stack.push(character);
     }
 
     if (closingParenthesis.has(character)) {
@@ -24,7 +24,8 @@ function isValidParenthesis(text) {
 
       const parenthesis = stack.pop();
 
-      if (character !== parenthesisPairs[parenthesis]) { // если скобка — не закрывающая текущей открывающей
+      if (character !== parenthesisPairs[parenthesis]) {
+        // если скобка — не закрывающая текущей открывающей
         return false;
       }
     }

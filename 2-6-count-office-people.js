@@ -16,18 +16,19 @@ count([[1, 2], [1, 10], [4, 9], [8, 15], [5, 6], [8, 16]]) // 4
 */
 
 /**
- * 
+ *
  * @param {number[][]} input - [ [enter, leave] ]
  * @returns {number}
+ * O(n log n)
  */
 function count(input) {
   const events = [];
-  
+
   for (const [enter, leave] of input) {
     events.push([enter, 'in']);
     events.push([leave, 'out']);
   }
-  
+
   events.sort((a, b) => {
     if (a[0] === b[0]) {
       return a[1] === 'in' ? 1 : -1; // если время одинаковое, то выход раньше
@@ -38,7 +39,6 @@ function count(input) {
   let maxCount = 0;
   let currentCount = 0;
 
-  
   for (const [, event] of events) {
     if (event === 'in') {
       currentCount++;
@@ -72,7 +72,7 @@ function count(input) {
     entries.push({
       time: leavingTime,
       isEntering: false,
-    })
+    });
   }
 
   entries.sort(compareEntries);
@@ -80,7 +80,7 @@ function count(input) {
   let currentCount = 0;
   let maximumCount = 0;
 
-  for (const {isEntering} of entries) {
+  for (const { isEntering } of entries) {
     currentCount += isEntering ? 1 : -1;
 
     maximumCount = Math.max(currentCount, maximumCount);
@@ -89,17 +89,48 @@ function count(input) {
   return maximumCount;
 }
 
-test(count([]), 0)
-test(count([[1, 5], [5, 10]]), 1)
-test(count([[1, 5], [0, 1], [4, 5]]), 2)
-test(count([[1, 10], [5, 6], [2, 3], [7, 8]]), 2)
-test(count([[1, 2], [1, 10], [4, 9], [8, 15], [5, 6], [8, 16]]), 4)
+test(count([]), 0);
+test(
+  count([
+    [1, 5],
+    [5, 10],
+  ]),
+  1,
+);
+test(
+  count([
+    [1, 5],
+    [0, 1],
+    [4, 5],
+  ]),
+  2,
+);
+test(
+  count([
+    [1, 10],
+    [5, 6],
+    [2, 3],
+    [7, 8],
+  ]),
+  2,
+);
+test(
+  count([
+    [1, 2],
+    [1, 10],
+    [4, 9],
+    [8, 15],
+    [5, 6],
+    [8, 16],
+  ]),
+  4,
+);
 
-
-
-// Неудачное решение
 /*
-Если время хранится в миллисекундах, как это чаще всего и делается, то на 12 часов открытого офиса будет приходиться 43200000 ключей! Расходы памяти просто огромнейшие, да и по времени заполнения это решение очень медленное.
+Неудачное решение
+
+Если время хранится в миллисекундах, как это чаще всего и делается, то на 12 часов открытого офиса будет приходиться 43200000 ключей!
+Расходы памяти просто огромнейшие, да и по времени заполнения это решение очень медленное.
 */
 function count(input) {
   const logs = {};

@@ -8,7 +8,7 @@ function isValidParenthesis3(text) {
 
   for (const character of text) {
     if (character === '(') {
-      stack.push(character)
+      stack.push(character);
     }
 
     if (character === ')') {
